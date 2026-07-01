@@ -29,8 +29,10 @@ if command -v cygpath >/dev/null 2>&1; then
   KEY_FILE_FOR_FFMPEG="$(cygpath -w "$KEY_FILE")"
 fi
 
+KEY_URL="${KEY_URL:-http://localhost:8001/key}"
+
 cat > "$KEY_INFO_FILE" <<EOF
-http://localhost:8001/key?token=DEMO
+$KEY_URL
 $KEY_FILE_FOR_FFMPEG
 $IV
 EOF
